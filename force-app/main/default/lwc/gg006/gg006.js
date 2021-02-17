@@ -16,10 +16,6 @@ export default class Gg001 extends LightningElement {
     @wire(MessageContext)
     messageContext;
 
-    get firsttab(){
-        return "first";
-    }
-
     connectedCallback() {
         this.subscription = subscribe(
             this.messageContext,
@@ -38,6 +34,8 @@ export default class Gg001 extends LightningElement {
 
     async handleFilterChange(filters) {
         if (filters.searchType == 'code') {
+
+            this.template.querySelector('lightning-tabset').activeTabValue = 'first';
             // const result1 = await getDetailInfo({ code: '111' });
             this.detailInfo = await this.asyncCallApexMethod(filters);
 
