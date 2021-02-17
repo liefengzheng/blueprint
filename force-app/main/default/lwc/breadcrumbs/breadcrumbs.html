@@ -1,0 +1,24 @@
+<template>
+    <template if:true={breadcrumbs}>
+        <lightning-breadcrumbs>
+            <template for:each={breadcrumbs} for:item="crumbs">
+                <template if:true={nodecnt}>
+                    <template if:true={crumbs.value.islast}>
+                        <p key={crumbs.id}>>  {crumbs.value.label}</p>
+                    </template>
+                    <template if:false={crumbs.value.islast}>
+                        <lightning-breadcrumb
+                            key={crumbs.id}
+                            label={crumbs.value.label}
+                            name={crumbs.value.id}
+                            onclick={handleNavigateTo}>
+                        </lightning-breadcrumb>
+                    </template>
+                </template>
+                <template if:false={nodecnt}>
+                    <p key={crumbs.id}> {crumbs.value.label}</p>
+                </template>
+            </template>
+        </lightning-breadcrumbs>
+    </template>
+</template>

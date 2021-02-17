@@ -1,0 +1,60 @@
+<template>
+    <div class={classname}>
+        <lightning-card title="" icon-name="" >
+            <p class="title">集団詳細</p>
+            <br>
+            <div>
+                <!-- <div class="slds-grid slds-wrap"> -->
+                <table>
+                    <tr>
+                        <td>団体ステータス</td>
+                        <template if:true={detailInfo}>
+                            <td>{detailInfo.value1}</td>
+                        </template>
+                        <template if:false={detailInfo}>
+                            <td></td>
+                        </template>
+                        <td>担当者</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>契約方法</td>
+                        <td></td>
+                        <td>払込方法</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>集金代行</td>
+                        <td></td>
+                        <td>装置不備</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>特約種類</td>
+                        <td></td>
+                        <td>幹事代理店</td>
+                        <td></td>
+                    </tr>
+                </table>
+            <!-- </div> -->
+            </div>
+            <br>
+            <lightning-tabset variant="scoped" active-tab-value={firsttab}>
+                <lightning-tab label="基本" value="first" >
+                    <p>Please input tab1 value</p>
+                    <template if:true={detailInfo}>
+                        {detailInfo.value1}
+                    </template>
+                    <template if:false={detailInfo}>
+                        aaa
+                    </template>
+                    <!-- <c-gt001 onsnipperevent={handlerSnipperEvent} onselected={contactSelected}></c-gt001> -->
+                </lightning-tab>
+                <lightning-tab label="集団請求" value="second" onactive={handleTabChange}></lightning-tab>
+                <lightning-tab label="商品扱い" value="third" onactive={handleTabChange}></lightning-tab>
+                <lightning-tab label="関連" value="fourth" onactive={handleTabChange}></lightning-tab>
+                <lightning-tab label="年末調整" value="fifth" onactive={handleTabChange}></lightning-tab>
+            </lightning-tabset>
+        </lightning-card>
+    </div>
+</template>

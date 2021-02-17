@@ -1,0 +1,15 @@
+.invisible{
+    display: none;
+    width:0px;
+    height:0px;
+}
+
+.normize{
+    width:100%;
+    height:100%;
+}
+
+.title{
+    font-size: x-large;
+    font-weight: bold;
+}

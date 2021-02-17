@@ -1,0 +1,16 @@
+<template>
+    <div class={classname}>
+        <lightning-card title="" icon-name="">
+            <p class="title">団体（集団）照会トップ</p>
+            <lightning-tabset>
+                <lightning-tab label="集団を検索">
+                    <!-- <p>Please input tab1 value</p> -->
+                    <c-gt001 onsnipperevent={handlerSnipperEvent} t001={top.t001}></c-gt001>
+                </lightning-tab>
+                <lightning-tab label="異動を検索"></lightning-tab>
+                <lightning-tab label="集団合計を検索"></lightning-tab>
+                <lightning-tab label="証券を検索"></lightning-tab>
+            </lightning-tabset>
+        </lightning-card>
+    </div>
+</template>

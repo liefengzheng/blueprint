@@ -1,0 +1,19 @@
+<template>
+    
+    <c-header breadcrumbs={model.breadcrumbs} nodecnt={model.nodecnt} onjump2event={handleJump}></c-header>
+    <!-- <template if:true={model.visible.top}> -->
+    <c-gt005 top ={model.data.top} classname={model.gtclassname} oncsnipperevent={handleSnipperEvent}></c-gt005>
+    <!-- </template> -->
+    <!-- <template if:true={model.visible.detail}> -->
+    <c-gg006 classname={model.ggclassname} onshowdetailevent={handleShowDetailInfo} ongotoevent={handleGoto}></c-gg006>
+    <!-- <c-gg001 classname={model.ggclassname}></c-gg001> -->
+    <!-- </template> -->
+    <c-gi001 classname={model.giclassname} onshowlistevent={handleShowList} 
+        ongotoevent={handleGoto} onsnipperevent={handleSnipperEvent}></c-gi001>
+
+    <c-footer ongotoprev={handleGotoPrev} nodecnt={model.nodecnt}></c-footer>
+    
+    <template if:true={model.isloading}>
+        <lightning-spinner></lightning-spinner>
+    </template>
+</template>

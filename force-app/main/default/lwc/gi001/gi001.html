@@ -1,0 +1,63 @@
+<template>
+    <div class={classname}>
+        <lightning-card title="" icon-name="" >
+            <p class="title">集団検索結果一覧</p>
+            <br>
+            <div>
+                <div class = "title-header">
+                    <div class="left">
+                        <h2>Q221（集団名索引）の情報が表示されます。</h2>
+                        <template if:true={grpNameSearchResultInfoDto.q211TranMessage}>
+                            <h2><br>（Q221トランメッセージ：{grpNameSearchResultInfoDto.q211TranMessage}）</h2>
+                        </template>
+                    </div>
+                    <div class="center"></div>
+                    <div class="right"><lightning-combobox 
+                                            name="index" 
+                                            label="団体ステータス絞り込み"
+                                            value={value}
+                                            options={options}
+                                            onchange={handleChange}></lightning-combobox>
+                    </div>
+                </div> 
+                <div>
+                    <h2>検索結果{grpNameSearchResultInfoDto.count}件</h2>
+                </div>      
+            </div>
+            
+            <div>
+                <template if:true={groupRecords}>
+                    <table>
+                        <tr>
+                            <th>集団コード</th>
+                            <th>団体ステータス</th>
+                            <th>集団名（漢字）</th>
+                            <th>集団名（カナ）</th>
+                            <th>郵便番号</th>
+                            <th>電話番号</th>
+                            <th>担当者</th>
+                        </tr>
+                        
+                        <template for:each={groupRecords}
+                            for:item="item">
+                            <tr key={item.grpCode}>
+                                <td><a onclick={handleItemClik}  data-id={item.grpCode}>{item.grpCode}</a></td>
+                                <td>{item.grpStatusCode} <lightning-helptext content={item.groupStatusName}></lightning-helptext></td>
+                                <td>{item.grpNmeKj}</td>
+                                <td>{item.grpNmeSglKn}</td>
+                                <td>{item.zip}</td>
+                                <td>{item.telNo}</td>
+                                <td>{item.grpOperatorCode}</td>
+                            </tr>
+                        </template>
+                    </table>
+                </template>
+                <br>
+                <div class="align-search-button">
+                    <lightning-button label="次へ >" onclick={handleNextPage} disabled={isLastPage}></lightning-button>
+                </div>
+                
+            </div>
+        </lightning-card>
+    </div>
+</template>
